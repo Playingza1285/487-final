@@ -79,5 +79,11 @@ The dataset is split into training, validation, and test sets (80/10/10). A hype
 ## Results
 
 Multinomial Naive Bayes Classifier Results:
-<img src="./CohnAlpha.png" width="400" >
 
+<img src="./results/metrics.png" width="400" >
+
+
+DistilBERT Classifier Results:
+
+<img src="./results/matrix.png" width="400" >
+<img src="./results/graph.png" width="400" >
