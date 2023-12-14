@@ -30,3 +30,39 @@ Example JSON Format:
     "ID": "004Gt3gcsotuiYmz"
 }
 ```
+
+## Methodology
+
+### Dataset Overview:
+
+* The dataset comprises 37,554 articles sourced from www.allsides.com, credited to the GitHub repository of Ramy Baly.
+* The dataset is provided in JSON format with attributes such as ID, topic, source, URL, date, authors, title, content_original, content, bias_text, and bias.
+
+### Data Cleaning and Selection:
+
+* Checked for empty attributes and filtered features for preprocessing, including ID, content_original, bias_text, and bias.
+* Selected features crucial for supervised machine learning, ensuring unique identification, textual analysis, and bias labeling.
+* Addressed potential utility of additional attributes like topic, date, and title for future analysis.
+
+### Dataset Suitability and Class Distribution:
+
+* The dataset, with bias classes 0, 1, and 2 representing left, center, and right affiliations, provides labeled data for supervised learning.
+* Classes are distributed as follows: class 0 (34.6%), class 1 (28.8%), and class 2 (36.6%), showing relatively balanced representation.
+* The dataset's richness enables machine learning techniques for identifying and understanding biases across the political spectrum.
+
+### Data Preprocessing:
+
+* Employed basic preprocessing techniques, including tokenization, stop word removal, lemmatization, and stemming for efficient text analysis.
+* Transformed the processed dataset into a Pandas DataFrame for ease of manipulation, resulting in a CSV file for portability.
+
+### Multinomial Naive Bayes and DistilBERT:
+
+* Adopted a combined approach using Multinomial Naive Bayes and DistilBERT for detecting political bias.
+* Multinomial Naive Bayes established a baseline accuracy by analyzing term frequencies, while DistilBERT provided advanced analysis using transformer-based neural networks.
+
+### DistilBERT Model Training:
+
+* Preprocessed data for DistilBERT involved punctuation removal, tokenization, subword tokenization using DistilBERT's tokenizer, and content truncation.
+* Truncated content to 150 tokens due to DistilBERT's feature limit, optimizing for efficient training.
+* Detailed the DistilBERT model structure, involving linear layers, softmax activation, and cross-entropy loss during training.
+
