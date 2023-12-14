@@ -75,3 +75,9 @@ The dataset is split into training, validation, and test sets (80/10/10). A hype
 * Truncated content to 150 tokens due to DistilBERT's feature limit, optimizing for efficient training.
 * Detailed the DistilBERT model structure, involving linear layers, softmax activation, and cross-entropy loss during training.
 
+
+## Results
+
+Multinomial Naive Bayes Classifier Results:
+<img src="./CohnAlpha.png" width="400" >
+
