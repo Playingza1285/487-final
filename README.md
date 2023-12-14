@@ -60,6 +60,15 @@ Example JSON Format:
 * Adopted a combined approach using Multinomial Naive Bayes and DistilBERT for detecting political bias.
 * Multinomial Naive Bayes established a baseline accuracy by analyzing term frequencies, while DistilBERT provided advanced analysis using transformer-based neural networks.
 
+### Multinomial Naive Bayes Architecture:
+
+The dataset is converted into a Pandas DataFrame, split into 80% training and 20% testing sets. The feature (article content) and target variables (political bias) are defined. The pipeline involves CountVectorizer() for text-to-numerical conversion and MultinomialNB() for classification. The architecture seamlessly integrates feature extraction and classification within a scikit-learn pipeline, streamlining text classification and bias detection.
+
+### DistilBERT Architecture:
+Before using DistilBERT, punctuation is removed, and content is tokenized, including [CLS] and [SEP] tokens, using DistilBERT's own tokenizer. Subword tokenization is applied, replacing unseen tokens with [UNK]. Truncation is necessary due to the 512-feature limit, initially attempted but later reduced to 150 features to improve model training efficiency. The model structure involves sending vectorized content through DistilBERT, followed by a linear layer for dimension reduction and a softmax layer for bias determination using the [CLS] token. Training involves cross-entropy loss and the Adam optimizer.
+
+The dataset is split into training, validation, and test sets (80/10/10). A hyperparameter search yields optimal learning rate (0.0001) and weight decay (0.0001). The batch size is 64, and each model undergoes 25 epochs. Evaluation metrics include accuracy and a confusion matrix to assess bias prediction. The Multinomial Naive Bayes classifier achieves a baseline accuracy of 0.64, considering class imbalances, particularly for class 1.
+
 ### DistilBERT Model Training:
 
 * Preprocessed data for DistilBERT involved punctuation removal, tokenization, subword tokenization using DistilBERT's tokenizer, and content truncation.
