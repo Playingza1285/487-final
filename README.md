@@ -82,8 +82,18 @@ Multinomial Naive Bayes Classifier Results:
 
 <img src="./results/metrics.png" width="400" >
 
-
 DistilBERT Classifier Results:
 
 <img src="./results/matrix.png" width="400" >
 <img src="./results/graph.png" width="400" >
+
+## Conclusion
+
+### Evaluation Metrics Consideration:
+Precision, recall, and F1-score are crucial metrics, each with its own strengths and weaknesses. Precision focuses on positive predictions' accuracy, vital when minimizing false positives is critical. Recall measures a model's ability to capture all positive instances, important when missing a positive has severe consequences. The F1-score balances precision and recall, offering a comprehensive evaluation, particularly valuable in imbalanced datasets. However, the F1-score may not align with every application in the political domain, as some tools may prioritize precision or recall over the other.
+
+### DistilBERT Model Evaluation:
+The confusion matrix for the fine-tuned DistilBERT model indicates challenges, particularly in identifying center-leaning articles. The model struggles due to the similarity of tokens in center-leaning articles with those leaning to either side. Hardware limitations and the necessity to use a low number of features contribute to the suboptimal result.
+
+### Overfitting in DistilBERT:
+The training and validation loss graph (Figure 5) reveals consistent validation accuracy below 0.5, indicating overfitting. Overfitting occurs when a model memorizes training examples but fails to generalize to new, unseen data. Hypotheses include article truncation (due to DistilBERT's 512-feature limit), leading to the model training on a limited number of features and not capturing the entire article. Training on truncated datasets can contribute to overfitting by not equally representing the entire article data.
